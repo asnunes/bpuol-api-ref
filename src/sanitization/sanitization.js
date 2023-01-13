@@ -1,18 +1,16 @@
 import { stripHtml } from "string-strip-html";
 
 export function sanitization(object, boolean) {
-    if (boolean) {
-        //participant
-        let { name } = object;
+  if (boolean) {
+    //participant
 
-        name = stripHtml(name).result.trim();
-        return;
-    }
-    //message
-    let { type, from, to, text } = object;
+    object.name = stripHtml(object.name).result.trim();
+    return;
+  }
+  //message
 
-    type = stripHtml(type).result.trim();
-    from = stripHtml(from).result.trim();
-    to = stripHtml(to).result.trim();
-    text = stripHtml(text).result.trim();
+  object.type = stripHtml(object.type).result.trim();
+  object.from = stripHtml(object.from).result.trim();
+  object.to = stripHtml(object.to).result.trim();
+  object.text = stripHtml(object.text).result.trim();
 }
